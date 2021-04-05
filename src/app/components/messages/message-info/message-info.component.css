@@ -1,0 +1,19 @@
+.divMessageInfo {
+    margin-bottom: 15px;
+    color: #00529B;
+    background-color: #BDE5F8;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.divMessageInfo a{
+    cursor: pointer;
+}
+
+.iconInfo {
+    float: left;
+}
+
+.messageProcesso {
+    padding-left: 30px;
+}

@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-body">
+        <h5 *ngIf="!isAddMode" class="card-title">Update Person Phone</h5>
+        <h5 *ngIf="isAddMode" class="card-title">Add Person Phone</h5>
+        <form [formGroup]="angForm" novalidate>
+            <div class="form-group">
+                <label class="col-md-4">Business ID</label>
+                <input type="text" class="form-control" formControlName="businessEntityID" #businessEntityID [(ngModel)] = "personPhone.businessEntityID"/>
+            </div>
+            <div *ngIf="angForm.controls['businessEntityID'].invalid && (angForm.controls['businessEntityID'].dirty || angForm.controls['businessEntityID'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="angForm.controls['businessEntityID'].errors.required">
+                    Business ID is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Phone Number</label>
+                <input type="text" class="form-control" formControlName="phoneNumber" #phoneNumber [(ngModel)] = "personPhone.phoneNumber" />
+            </div>
+            <div *ngIf="angForm.controls['phoneNumber'].invalid && (angForm.controls['phoneNumber'].dirty || angForm.controls['phoneNumber'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="angForm.controls['phoneNumber'].errors.required">
+                    Phone Number is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Type ID</label>
+                <input type="text" class="form-control" formControlName="phoneNumberTypeID" #phoneNumberTypeID [(ngModel)] = "personPhone.phoneNumberTypeID"/>
+            </div>
+            <div *ngIf="angForm.controls['phoneNumberTypeID'].invalid && (angForm.controls['phoneNumberTypeID'].dirty || angForm.controls['phoneNumberTypeID'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="angForm.controls['phoneNumberTypeID'].errors.required">
+                    Type ID is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button (click)="savePerson(businessEntityID.value, phoneNumber.value, phoneNumberTypeID.value)" [disabled]="angForm.pristine || angForm.invalid"
+                    class="btn btn-primary col-md-3">Save</button>
+            </div>            
+        </form>
+    </div>
+</div>

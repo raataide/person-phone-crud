@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Person Phones
+            <i class="float-right">records({{personPhones.length}})</i></h5>
+        
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>Business Entity ID</td>
+                            <td>Phone</td>
+                            <td>Phone Type</td>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let phone of personPhones" 
+                        [routerLink]="['/edit', phone.businessEntityID,phone.phoneNumber,phone.phoneNumberTypeID]"
+                        class="trpointer">
+                            <td>
+                                <button class="btn" (click)="$event.stopPropagation();delete(phone.businessEntityID,phone.phoneNumber,phone.phoneNumberTypeID)">
+                                <i class="fa fa-trash"></i></button></td>
+                            <td>{{ phone.businessEntityID }}</td>
+                            <td>{{ phone.phoneNumber }}</td>
+                            <td>{{ phone.phoneNumberTypeID }}</td>
+                            
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-9"></div>
+                    <div class="col-3">
+                        <a routerLink="create" routerLinkActive="active" class="btn btn-primary btn-block">
+                            Add new contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

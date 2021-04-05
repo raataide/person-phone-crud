@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="container-fluid">
+    
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">Home</a>
+    </nav>
+
+    <app-message-info [message]="messageInfo" [showMessage]="showMessageInfo"></app-message-info>
+    <app-message-warning [message]="messageWarning" [showMessage]="showMessageWarning"></app-message-warning>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>
